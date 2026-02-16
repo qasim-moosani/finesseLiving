@@ -39,8 +39,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="nav-menus-wrapper nav-menus-wrapper-open" [ngClass]="{ 'nav-menus-wrapper-open': toggle}"
-                [ngStyle]="{'transition-property': toggle ? 'none' : 'left'}">
+            <!-- <div class="nav-menus-wrapper nav-menus-wrapper-open" [ngClass]="{ 'nav-menus-wrapper-open': toggle}"
+                [ngStyle]="{'transition-property': toggle ? 'none' : 'left'}">-->
+                
+                <div class="nav-menus-wrapper nav-menus-wrapper-right"
+                [ngClass]="{ 'nav-menus-wrapper-open': toggle }">
                 <span class="nav-menus-wrapper-close-button" (click)="toggle = !toggle">✕</span>
                 <ul class="nav-menu">
                     <li [ngClass]="{'active': ['/','/home-2','/home-3','/home-4','/home-5','/home-6','/home-7','/home-8','/home-9','/home-10','/home-11','/video','/map'].includes(current),'show': activeMenu['index-page'] && activeMenu['index-page']['main']}"

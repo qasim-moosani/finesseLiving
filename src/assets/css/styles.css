@@ -136,7 +136,7 @@ i.req {
   outline: none; }
 
 body {
-	background: #ffffff;
+	background: #f7f5f1;
 	color:#4e5c79;
 	font-size:15px;
 	font-family: 'Jost', sans-serif;
@@ -2808,11 +2808,13 @@ nav a:hover {
     display: block;
 }
 
-.navigation-portrait .nav-menus-wrapper {
+/* Qasim CSS for right menu */
+
+/* .navigation-portrait .nav-menus-wrapper {
     width: 320px;
     height: 100%;
     top: 0;
-    left: -400px;
+    right: -400px;
     position: fixed;
     background-color: #fff;
     z-index: 20000;
@@ -2828,11 +2830,70 @@ nav a:hover {
 }
 
 .nav-menus-wrapper.nav-menus-wrapper-open {
-    left: 0
+    right: 0
 }
 
 .nav-menus-wrapper.nav-menus-wrapper-right.nav-menus-wrapper-open {
     right: 0
+}
+
+.nav-menus-wrapper-close-button {
+    width: 35px;
+    height: 35px;
+    margin: 10px 7px;
+    display: none;
+    float: right;
+    color: #70798b;
+    font-size: 15px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    background: #c3ddf0;
+    border-radius: 50%;
+    color: #006dbe;
+    padding: 0;
+}
+
+.navigation-portrait .nav-menus-wrapper-close-button {
+    display: flex;
+} */
+
+/* Qasim CSS for right menu */
+
+/* MOBILE / PORTRAIT OFFCANVAS */
+.navigation-portrait .nav-menus-wrapper {
+  width: 320px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+
+  right: -320px;   /* exactly -width */
+  left: auto !important;
+
+  background: #fff;
+  z-index: 20000;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  transition: right 0.4s ease;
+}
+
+/* if you keep this class, it should match the same hidden position */
+.navigation-portrait .nav-menus-wrapper.nav-menus-wrapper-right {
+  right: -320px;   /* NOT -400 */
+  left: auto !important;
+}
+
+/* OPEN state only for portrait */
+.navigation-portrait .nav-menus-wrapper.nav-menus-wrapper-open {
+  right: 0;
+}
+
+/* IMPORTANT: portrait me li ko float mat do */
+.navigation-portrait .nav-menu > li {
+  float: none !important;
+  display: block;
+  width: 100%;
 }
 
 .nav-menus-wrapper-close-button {
