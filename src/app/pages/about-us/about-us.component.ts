@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavbarComponent } from "../../components/navbar/navbar/navbar.component";
 import { FooterTopComponent } from "../../components/footer-top/footer-top.component";
 import { FooterComponent } from "../../components/footer/footer.component";
+import { NavLightComponent } from '../../components/navbar/nav-light/nav-light.component';
 
 declare var $: any;
 
@@ -11,6 +12,7 @@ declare var $: any;
   imports: [
     CommonModule,
     NavbarComponent,
+    NavLightComponent,
     FooterTopComponent,
     FooterComponent
 ],

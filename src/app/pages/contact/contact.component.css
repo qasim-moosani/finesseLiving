@@ -1,0 +1,28 @@
+.contact-hero {
+    position: relative;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.65),
+            rgba(0,0,0,0.65)
+        ),
+        url('/assets/img/banner.svg');
+    background-size: cover; 
+    background-position: center;
+}
+
+
+.home-map-banner.full-wrapious {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 285px;
+    width: 100%;
+    overflow: hidden;
+}
