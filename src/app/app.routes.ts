@@ -54,9 +54,12 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
 import { SubmitPropertyDashboardComponent } from './pages/admin/submit-property-dashboard/submit-property-dashboard.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { AboutComponent } from './pages/about/about.component';
 
 export const routes: Routes = [
-    {path:'', component:IndexOneComponent},
+    {path:'', component:IndexThreeComponent},
+    {path:'home-1', component:IndexOneComponent},
     {path:'home-2', component:IndexTwoComponent},
     {path:'home-3', component:IndexThreeComponent},
     {path:'home-4', component:IndexFourComponent},
@@ -107,6 +110,8 @@ export const routes: Routes = [
     {path:'pricing', component:PricingsComponent},
     {path:'404', component:ErrorComponent},
     {path:'contact', component:ContactComponent},
+    {path:'contact-us', component:ContactUsComponent},
+    {path:'about', component:AboutComponent},
     {path:'about-us', component:AboutUsComponent},
     {path:'dashboard', component:DashboardComponent},
     {path:'payment', component:PaymentComponent},

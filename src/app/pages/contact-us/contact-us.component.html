@@ -1,0 +1,164 @@
+<app-nav-light />
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">CONTACT FINESSE LIVING</p>
+        <h1 class="hero-title">Let’s Begin with Clarity.</h1>
+        <p class="hero-lead">
+          Whether you are exploring a purchase, evaluating new projects, or seeking structured market guidance,
+          our advisory team is available to assist.
+        </p>
+        <p class="hero-sub">
+          Connect with us directly or submit an inquiry below — and we will respond within 24 hours.
+        </p>
+
+        <div class="hero-badges">
+          <span class="badge">Response within 24 hours</span>
+          <span class="badge">Dubai Advisory Team</span>
+          <span class="badge">Structured Guidance</span>
+        </div>
+      </div>
+
+      <div class="hero-cards reveal delay-1">
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="info-title">Office Information</div>
+            <div class="info-text">
+              <b>Finesse Living Real Estate</b><br />
+              Suite 12, 1st Floor<br />
+              Sheikh Zayed Road<br />
+              Al Quoz First – Al Quoz<br />
+              Dubai, United Arab Emirates<br />
+              P.O. Box: 26270
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <div class="info-title">Office Hours</div>
+            <div class="info-text">
+              Monday to Saturday<br />
+              10:00 AM – 7:00 PM
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-phone-volume"></i></div>
+          <div>
+            <div class="info-title">Direct Contact</div>
+            <div class="info-text">
+              Phone: <a href="tel:+97143368278">04 336 8278</a><br />
+              Admin WhatsApp: <a href="https://wa.me/971554605778" target="_blank" rel="noopener">+971 55 460 5778</a><br />
+              Email: <a href="mailto:info@finesseliv.com">info&#64;finesseliv.com</a><br />
+              <span class="muted">admin&#64;finesseliv.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+  <div class="container">
+    <div class="map-wrap reveal">
+      <div class="map-frame">
+        <div id="map"></div>
+        <div class="map-overlay-card">
+          <div class="map-overlay-title">Visit Our Office</div>
+          <div class="map-overlay-text">
+            Located along Sheikh Zayed Road in Al Quoz, our office provides a dedicated environment for consultation and advisory discussions.
+          </div>
+          <a class="map-cta" href="https://www.google.com/maps/search/?api=1&query=Al+Quoz+Sheikh+Zayed+Road+Dubai" target="_blank" rel="noopener">
+            Open in Google Maps
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM + CLOSING -->
+<section class="contact-main">
+  <div class="container">
+    <div class="main-grid">
+      <div class="form-card reveal">
+        <div class="section-head">
+          <h2>Submit an Inquiry</h2>
+          <p>Complete the form below and a member of our advisory team will contact you within 24 hours.</p>
+        </div>
+
+        <form [formGroup]="contactForm" (ngSubmit)="submit()" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="label">Full Name</label>
+              <input class="input" type="text" formControlName="fullName" placeholder="Your name" />
+            </div>
+
+            <div class="col-md-6">
+              <label class="label">Phone Number</label>
+              <input class="input" type="tel" formControlName="phone" placeholder="+971 ..." />
+            </div>
+
+            <div class="col-md-6">
+              <label class="label">Email Address</label>
+              <input class="input" type="email" formControlName="email" placeholder="name@email.com" />
+            </div>
+
+            <div class="col-md-6">
+              <label class="label">Inquiry Type</label>
+              <select class="input" formControlName="inquiryType">
+                <option value="">Select</option>
+                <option>Buy</option>
+                <option>Rent</option>
+                <option>Off-Plan</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="label">Message</label>
+              <textarea class="input textarea" rows="5" formControlName="message"
+                placeholder="Tell us what you’re looking for, preferred area, budget, and timeline..."></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-premium" type="submit" [disabled]="contactForm.invalid || submitting">
+              <span *ngIf="!submitting">Request a Call Back</span>
+              <span *ngIf="submitting">Sending…</span>
+            </button>
+
+            <div class="form-note">
+              By submitting, you agree to be contacted by our advisory team.
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="closing-card reveal delay-1">
+        <h3>Connect with Finesse Living and move forward with clarity.</h3>
+        <p class="muted">
+          For best assistance, include your preferred property type, budget range, and intended move-in or investment timeline.
+        </p>
+
+        <div class="quick-actions">
+          <a class="qa" href="tel:+97143368278"><i class="fa-solid fa-phone"></i> Call Office</a>
+          <a class="qa" href="https://wa.me/971554605778" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Admin</a>
+          <a class="qa" href="mailto:info@finesseliv.com"><i class="fa-solid fa-envelope"></i> Email Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer />

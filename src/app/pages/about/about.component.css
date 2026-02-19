@@ -1,0 +1,152 @@
+/* HERO */
+.about-hero-premium{
+  padding: 120px 0 90px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(176,138,59,.15), transparent 50%),
+    linear-gradient(180deg,#fff,#f6f2ea);
+}
+
+.hero-line{
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg,#b08a3b,#654708);
+  margin-bottom: 20px;
+}
+
+.hero-label{
+  letter-spacing: .2em;
+  font-size: 12px;
+  color: #b08a3b;
+}
+
+.hero-title{
+  font-family: 'Playfair Display', serif;
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.hero-title span{
+  color: #654708;
+}
+
+.hero-sub{
+  font-size: 18px;
+  color: #555;
+}
+
+/* Editorial Section */
+.about-editorial{
+  padding: 100px 0;
+}
+
+.gold-divider{
+  width: 60px;
+  height: 3px;
+  background:#b08a3b;
+  margin-bottom: 40px;
+}
+
+.section-title{
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.editorial-text p{
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  color: #444;
+}
+
+.highlight-line{
+  font-size: 22px;
+  font-weight: 600;
+  color: #111;
+}
+
+/* Split */
+.about-split{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 120px 8%;
+  background:#f6f2ea;
+  align-items:center;
+}
+
+.split-left h2{
+  font-size: 40px;
+  font-family:'Playfair Display', serif;
+}
+
+.accent-bar{
+  width: 4px;
+  height: 60px;
+  background:#b08a3b;
+  margin-bottom: 20px;
+}
+
+.split-right p{
+  font-size: 18px;
+  line-height: 1.8;
+  color:#444;
+}
+
+/* Approach */
+.approach-premium{
+  padding:120px 0;
+}
+
+.centered{
+  text-align:center;
+}
+
+.approach-columns{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:60px;
+  margin-top:60px;
+}
+
+.approach-block{
+  position:relative;
+  padding-left:60px;
+}
+
+.block-number{
+  position:absolute;
+  left:0;
+  top:0;
+  font-size:40px;
+  font-weight:700;
+  color:#e5d6b3;
+}
+
+.approach-block h3{
+  font-size:22px;
+  margin-bottom:15px;
+}
+
+.approach-block p{
+  color:#555;
+  line-height:1.7;
+}
+
+/* Closing */
+.closing-premium{
+  padding:120px 0;
+  background:linear-gradient(135deg,#654708,#b08a3b);
+  color:white;
+  text-align:center;
+}
+
+.closing-premium h2{
+  font-size:30px;
+  line-height:1.6;
+}
+
+.closing-premium span{
+  font-weight:700;
+}
