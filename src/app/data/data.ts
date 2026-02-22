@@ -205,43 +205,43 @@ export const propertyData = [
 
 export const bestLoction = [
     {
-        image:'/assets/img/c-1.png',
-        location:'San Francisco, California',
+        image:'/assets/img/locations/L-1.jpg',
+        location:'Downtown Dubai',
         properties:'95 Properties'
     },
     {
-        image:'/assets/img/c-2.png',
-        location:'Dunao, California',
+        image:'/assets/img/locations/L-2.jpg',
+        location:'Dubai Marina',
         properties:'95 Properties'
     },
     {
-        image:'/assets/img/c-3.png',
-        location:'Liverpool, London',
+        image:'/assets/img/locations/L-3.jpg',
+        location:'Business Bay',
         properties:'95 Properties'
     },
     {
-        image:'/assets/img/c-4.png',
-        location:'San Francisco, New York',
+        image:'/assets/img/locations/L-4.jpg',
+        location:'Palm Jumeirah',
         properties:'95 Properties'
     },
     {
-        image:'/assets/img/c-5.png',
-        location:'New Orleans, Louisiana',
+        image:'/assets/img/locations/L-4.jpg',
+        location:'Dubai Hills Estate',
         properties:'95 Properties'
     },
     {
-        image:'/assets/img/c-6.png',
-        location:'Los Angeles',
+        image:'/assets/img/locations/L-6.jpg',
+        location:'JVC',
         properties:'95 Properties'
     },
     {
-        image:'/assets/img/c-7.png',
-        location:'Dubai, UAE',
+        image:'/assets/img/locations/L-7.jpg',
+        location:'Dubai Creek Harbour',
         properties:'95 Properties'
     },
     {
-        image:'/assets/img/c-8.png',
-        location:'Dhaka, UAE',
+        image:'/assets/img/locations/L-8.jpg',
+        location:'Arabian Ranches',
         properties:'95 Properties'
     },
 ]

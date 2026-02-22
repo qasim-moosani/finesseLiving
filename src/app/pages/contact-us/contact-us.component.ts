@@ -1,7 +1,7 @@
 declare var L: any;
 
 import { CommonModule } from '@angular/common';
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { NavLightComponent } from '../../components/navbar/nav-light/nav-light.component';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -13,13 +13,15 @@ import { FooterComponent } from '../../components/footer/footer.component';
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.css'
 })
+export class ContactUsComponent implements AfterViewInit, OnDestroy {
 
-export class ContactUsComponent {
-
+  @ViewChild('mapEl', { static: false }) mapEl!: ElementRef<HTMLDivElement>;
 
   submitting = false;
   contactForm!: FormGroup;
 
+  private map: any;              // Leaflet map instance
+  private mapReady = false;
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
@@ -31,25 +33,45 @@ export class ContactUsComponent {
     });
   }
 
-
-
   ngAfterViewInit(): void {
     this.initRevealAnimations();
+
+    // Initialize map AFTER view is ready
     this.initMap();
+
+    // Force Leaflet to recalc size after layout/fonts settle
+    queueMicrotask(() => this.safeInvalidate());
+    setTimeout(() => this.safeInvalidate(), 0);
+    setTimeout(() => this.safeInvalidate(), 200);
+
+    // If user resizes window (mobile rotate etc.)
+    window.addEventListener('resize', this.onResize, { passive: true });
   }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('resize', this.onResize);
+
+    // Clean up Leaflet to avoid memory leaks when leaving page
+    if (this.map) {
+      this.map.remove();
+      this.map = null;
+    }
+  }
+
+  private onResize = () => {
+    this.safeInvalidate();
+  };
 
   submit(): void {
     if (this.contactForm.invalid) return;
 
     this.submitting = true;
 
-    // TODO: connect to backend / email service
     console.log('Form payload:', this.contactForm.value);
 
     setTimeout(() => {
       this.submitting = false;
       this.contactForm.reset();
-      // Optional: toast/snackbar
       alert('Thank you. Our advisory team will reach out within 24 hours.');
     }, 900);
   }
@@ -58,14 +80,16 @@ export class ContactUsComponent {
     const lat = 25.173234;
     const lng = 55.244124;
 
-    const map = L.map('map', {
+    // IMPORTANT: use the element reference instead of string id (more reliable in Angular)
+    this.map = L.map(this.mapEl.nativeElement, {
       zoomControl: true,
       scrollWheelZoom: false,
+      preferCanvas: true,
     }).setView([lat, lng], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors',
-    }).addTo(map);
+    }).addTo(this.map);
 
     const companyIcon = L.icon({
       iconUrl: 'assets/img/map-icon.png',
@@ -75,7 +99,7 @@ export class ContactUsComponent {
     });
 
     L.marker([lat, lng], { icon: companyIcon })
-      .addTo(map)
+      .addTo(this.map)
       .bindPopup('<b>Finesse Living</b><br>Al Quoz, Dubai');
 
     L.circle([lat, lng], {
@@ -83,7 +107,16 @@ export class ContactUsComponent {
       fillColor: '#b08a3b',
       fillOpacity: 0.12,
       radius: 380
-    }).addTo(map);
+    }).addTo(this.map);
+
+    this.mapReady = true;
+  }
+
+  private safeInvalidate(): void {
+    if (!this.mapReady || !this.map) return;
+    try {
+      this.map.invalidateSize(true);
+    } catch { /* ignore */ }
   }
 
   private initRevealAnimations(): void {
@@ -96,5 +129,4 @@ export class ContactUsComponent {
 
     els.forEach(el => io.observe(el));
   }
-
 }

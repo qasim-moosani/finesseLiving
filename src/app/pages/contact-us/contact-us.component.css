@@ -98,7 +98,16 @@
 .muted{ color: var(--muted); }
 
 .map-section{ padding: 26px 0 10px; background: var(--bg); }
-.map-wrap{ border-radius: 22px; overflow:hidden; box-shadow: var(--shadow); border:1px solid rgba(0,0,0,0.06); }
+/* .map-wrap{ border-radius: 22px; overflow:hidden; box-shadow: var(--shadow); border:1px solid rgba(0,0,0,0.06); } */
+
+.map-wrap{
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+}
+
 .map-frame{
   position: relative;
   height: 320px;

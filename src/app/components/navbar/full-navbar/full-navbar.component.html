@@ -124,9 +124,9 @@
                         </ul>
                     </li> 
                     
-                    <li [ngClass]="{'active': ['/blog','/about-us','/blog-detail','/component','/pricing','/faq','/404','/contact','/create-account','/checkout'].includes(current),'show': activeMenu['blog-page'] && activeMenu['blog-page']['main']}" (mouseenter)="handleMouseEnter('blog-page')" (mouseleave)="handleMouseLeave('blog-page')"><a [routerLink]="[]" >Pages<span class="submenu-indicator" ></span></a>
+                    <li [ngClass]="{'active': ['/blog','/about','/blog-detail','/component','/pricing','/faq','/404','/contact','/create-account','/checkout'].includes(current),'show': activeMenu['blog-page'] && activeMenu['blog-page']['main']}" (mouseenter)="handleMouseEnter('blog-page')" (mouseleave)="handleMouseLeave('blog-page')"><a [routerLink]="[]" >Pages<span class="submenu-indicator" ></span></a>
                         <ul class="nav-dropdown nav-submenu" [ngStyle]="{display: activeMenu['blog-page'] && activeMenu['blog-page']['main'] ? 'block' : 'none', pointerEvents: activeMenu['blog-page'] && activeMenu['blog-page']['main'] ? 'auto' : 'none'}" >
-                            <li><a [routerLink]="['/about-us']" [ngClass]="{ 'active': current === '/about-us' }">About us</a></li> 
+                            <li><a [routerLink]="['/about']" [ngClass]="{ 'active': current === '/about' }">About us</a></li> 
                             <li><a [routerLink]="['/blog']" [ngClass]="{ 'active': current === '/blog' }">Blogs Page</a></li>                                    
                             <li><a [routerLink]="['/blog-detail']" [ngClass]="{ 'active': current === '/blog-detail' }">Blog Detail</a></li>                                    
                             <li><a [routerLink]="['/component']" [ngClass]="{ 'active': current === '/component' }">Shortcodes</a></li> 

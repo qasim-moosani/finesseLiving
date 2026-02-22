@@ -2,15 +2,17 @@
     <div *ngFor="let item of loctionData" class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
         <div class="location-property-wrap rounded-4 p-2">
             <div class="location-property-thumb rounded-4">
-                <a [routerLink]="'/listings-list-with-sidebar'"><img [src]="item.image" class="img-fluid" alt="" /></a>
+                <!-- <a [routerLink]="'/listings-list-with-sidebar'"><img [src]="item.image" class="img-fluid" alt="" /></a> -->
+                <a><img [src]="item.image" class="img-fluid" alt="" /></a>
             </div>
             <div class="location-property-content">
                 <div class="lp-content-flex">
                     <h4 class="lp-content-title">{{item.location}}</h4>
-                    <span class="text-muted-2">{{item.properties}}</span>
+                    <!-- <span class="text-muted-2">{{item.properties}}</span> -->
                 </div>
                 <div class="lp-content-right">
-                    <a [routerLink]="'/listings-list-with-sidebar'" class="text-primary">
+                    <!-- <a [routerLink]="'/listings-list-with-sidebar'" class="text-primary"> -->
+                    <a class="text-primary">
                         <span class="svg-icon svg-icon-2hx">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/>

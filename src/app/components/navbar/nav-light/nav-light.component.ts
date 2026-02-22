@@ -2,7 +2,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import {navProperty,navProperty2} from '../../../data/data.js'
+import { navProperty, navProperty2 } from '../../../data/data.js'
 
 @Component({
   selector: 'app-nav-light',
@@ -26,7 +26,7 @@ export class NavLightComponent {
   scroll: boolean = false;
   current: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -52,5 +52,13 @@ export class NavLightComponent {
 
   handleMouseLeave(menu: string, submenu?: string): void {
     if (this.activeMenu[menu]) this.activeMenu[menu][submenu || 'main'] = false;
+  }
+
+  openMenu() {
+    this.toggle = true;
+  }
+
+  closeMenu() {
+    this.toggle = false;
   }
 }

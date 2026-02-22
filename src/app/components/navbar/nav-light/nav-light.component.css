@@ -3,3 +3,7 @@
   width: auto;
   object-fit: contain;
 }
+
+.btn-border {
+  border: wheat !important;
+}

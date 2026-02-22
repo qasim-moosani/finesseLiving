@@ -13,13 +13,13 @@
                     <img *ngIf="!scroll" src='/assets/img/logo/image.png' alt="" class='d-block d-lg-none' />
                     <!-- <h5 class="fs-3 fw-bold ms-1 my-0">Finesse Liv</h5> -->
                 </a>
-                <div class="nav-toggle" (click)="toggle = !toggle"></div>
-                <div class="mobile_nav">
+                <div class="nav-toggle" (click)="openMenu()"></div>
+                <div *ngIf="false" class="mobile_nav">
                     <a [routerLink]="[]" class="text-primary" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                         <img [src]="'/assets/img/svg/bar.svg'" alt="">
                     </a>
-                    <ul *ngIf="false">
+                    <ul>
                         <li>
                             <a [routerLink]="[]" data-bs-toggle="modal" data-bs-target="#login"
                                 class="text-dark opacity-75">
@@ -42,15 +42,24 @@
             </div>
             <!-- <div class="nav-menus-wrapper nav-menus-wrapper-open" [ngClass]="{ 'nav-menus-wrapper-open': toggle}"
                 [ngStyle]="{'transition-property': toggle ? 'none' : 'left'}">-->
-                
-                <div class="nav-menus-wrapper nav-menus-wrapper-right"
-                [ngClass]="{ 'nav-menus-wrapper-open': toggle }">
-                <span class="nav-menus-wrapper-close-button" (click)="toggle = !toggle">✕</span>
+
+            <div class="nav-menus-wrapper nav-menus-wrapper-right" [ngClass]="{ 'nav-menus-wrapper-open': toggle }">
+                <!-- <span class="nav-menus-wrapper-close-button" (click)="openMenu()">✕</span> -->
+                <button type="button" class="nav-menus-wrapper-close-button btn-border"
+                    (click)="closeMenu(); $event.stopPropagation()">
+                    ✕
+                </button>
                 <ul class="nav-menu">
-                    <li [ngClass]="{'active': ['/','/home-2','/home-3','/home-4','/home-5','/home-6','/home-7','/home-8','/home-9','/home-10','/home-11','/video','/map'].includes(current),'show': activeMenu['index-page'] && activeMenu['index-page']['main']}"
+
+                    <li> <a [routerLink]="['/']">Home</a></li>
+                    <li> <a [routerLink]="['/about']">About Us</a></li>
+                    <li> <a [routerLink]="['/contact-us']">Contact Us</a></li>
+
+                    <li *ngIf="false"
+                        [ngClass]="{'active': ['/','/home-2','/home-3','/home-4','/home-5','/home-6','/home-7','/home-8','/home-9','/home-10','/home-11','/video','/map'].includes(current),'show': activeMenu['index-page'] && activeMenu['index-page']['main']}"
                         (mouseenter)="handleMouseEnter('index-page')" (mouseleave)="handleMouseLeave('index-page')">
                         <a [routerLink]="['/home-3']">Home</a>
-                        <ul *ngIf="false" class="nav-dropdown nav-submenu"
+                        <ul class="nav-dropdown nav-submenu"
                             [ngStyle]="{display: activeMenu['index-page'] && activeMenu['index-page']['main'] ? 'block' : 'none', pointerEvents: activeMenu['index-page'] && activeMenu['index-page']['main'] ? 'auto' : 'none'}">
                             <li><a [routerLink]="['/']" [ngClass]="{ 'active': current === '/' }">Home Layout 1</a></li>
                             <li><a [routerLink]="['/home-2']" [ngClass]="{ 'active': current === '/home-2' }">Home
@@ -79,8 +88,8 @@
                                     Layout</a></li>
                         </ul>
                     </li>
-
-                    <li [ngClass]="{'active': ['/list-layout-new','/list-layout-new-3','/list-layout-new-2','/list-layout-with-map','/list-layout-full','/grid-layout-with-sidebar','/classical-layout-with-sidebar','/grid-layout-with-map','/grid','/classical-property','/list-layout-with-map','/grid-layout-with-map','/classical-layout-with-map','/half-map','/half-map-2'].includes(current),'show': activeMenu['listing-page'] && activeMenu['listing-page']['main']}"
+                    <li *ngIf="false"
+                        [ngClass]="{'active': ['/list-layout-new','/list-layout-new-3','/list-layout-new-2','/list-layout-with-map','/list-layout-full','/grid-layout-with-sidebar','/classical-layout-with-sidebar','/grid-layout-with-map','/grid','/classical-property','/list-layout-with-map','/grid-layout-with-map','/classical-layout-with-map','/half-map','/half-map-2'].includes(current),'show': activeMenu['listing-page'] && activeMenu['listing-page']['main']}"
                         (mouseenter)="handleMouseEnter('listing-page')" (mouseleave)="handleMouseLeave('listing-page')">
                         <a [routerLink]="[]">Listings<span class="submenu-indicator"><span
                                     class='submenu-indicator-chevron'></span></span></a>
@@ -158,7 +167,8 @@
                         </ul>
                     </li>
 
-                    <li [ngClass]="{'active': ['/single-property-1','/single-property-2','/single-property-3','/single-property-4','/agencies','/agency-page','/agents','/agent-page','/dashboard','/payment','/my-profile','/my-property','/bookmark-list','/change-password','/compare-property','/submit-property'].includes(current),'show': activeMenu['feature-page'] && activeMenu['feature-page']['main']}"
+                    <li *ngIf="false"
+                        [ngClass]="{'active': ['/single-property-1','/single-property-2','/single-property-3','/single-property-4','/agencies','/agency-page','/agents','/agent-page','/dashboard','/payment','/my-profile','/my-property','/bookmark-list','/change-password','/compare-property','/submit-property'].includes(current),'show': activeMenu['feature-page'] && activeMenu['feature-page']['main']}"
                         (mouseenter)="handleMouseEnter('feature-page')" (mouseleave)="handleMouseLeave('feature-page')">
                         <a [routerLink]="[]">Features<span class="submenu-indicator"><span
                                     class='submenu-indicator-chevron'></span></span></a>
@@ -250,12 +260,13 @@
                         </ul>
                     </li>
 
-                    <li [ngClass]="{'active': ['/blog','/about-us','/blog-detail','/component','/pricing','/faq','/404','/contact','/create-account','/checkout'].includes(current),'show': activeMenu['blog-page'] && activeMenu['blog-page']['main']}"
+                    <li *ngIf="false"
+                        [ngClass]="{'active': ['/blog','/about','/blog-detail','/component','/pricing','/faq','/404','/contact','/create-account','/checkout'].includes(current),'show': activeMenu['blog-page'] && activeMenu['blog-page']['main']}"
                         (mouseenter)="handleMouseEnter('blog-page')" (mouseleave)="handleMouseLeave('blog-page')"><a
                             [routerLink]="[]">Pages<span class="submenu-indicator"></span></a>
                         <ul class="nav-dropdown nav-submenu"
                             [ngStyle]="{display: activeMenu['blog-page'] && activeMenu['blog-page']['main'] ? 'block' : 'none', pointerEvents: activeMenu['blog-page'] && activeMenu['blog-page']['main'] ? 'auto' : 'none'}">
-                            <li><a [routerLink]="['/about-us']" [ngClass]="{ 'active': current === '/about-us' }">About
+                            <li><a [routerLink]="['/about']" [ngClass]="{ 'active': current === '/about' }">About
                                     us</a></li>
                             <li><a [routerLink]="['/blog']" [ngClass]="{ 'active': current === '/blog' }">Blogs Page</a>
                             </li>

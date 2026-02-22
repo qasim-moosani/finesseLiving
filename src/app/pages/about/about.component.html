@@ -1,132 +1,234 @@
 <app-nav-light />
 
-<!-- HERO -->
-<section class="about-hero-premium">
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-line"></div>
-      <p class="hero-label">ABOUT FINESSE LIVING</p>
-      <h1 class="hero-title">
-        Structured Advisory <br />
-        <span>In A Dynamic Market</span>
-      </h1>
-      <p class="hero-sub">
-        Real estate in Dubai moves quickly. Decisions, however, should not.
-      </p>
+<section class="about-hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-copy reveal">
+                <div class="hero-kicker">
+                    <span class="line"></span>
+                    <span class="label">ABOUT US</span>
+                </div>
+
+                <h1 class="title">
+                    Clarity, Structure
+                    <span class="gold">and Disciplined Advisory</span>
+                </h1>
+
+                <p class="lead">
+                    Dubai’s real estate landscape operates with speed and constant movement.
+                    Meaningful decisions, however, require clarity, structure, and perspective.
+                </p>
+
+                <div class="hero-pills">
+                    <span class="pill">Advisory First</span>
+                    <span class="pill">Intelligence-Led</span>
+                    <span class="pill">Measured Execution</span>
+                </div>
+            </div>
+
+            <div class="hero-card reveal delay-1">
+                <div class="card-head">
+                    <div class="dot"></div>
+                    <div class="card-title">Positioning</div>
+                </div>
+                <p class="card-quote">
+                    “We do not pursue activity for its own sake. We pursue positioning.”
+                </p>
+
+                <div class="mini-stats">
+                    <div class="ms">
+                        <div class="ms-top">Clarity</div>
+                        <div class="ms-bottom">Before Decisions</div>
+                    </div>
+                    <div class="ms">
+                        <div class="ms-top">Structure</div>
+                        <div class="ms-bottom">Through Process</div>
+                    </div>
+                    <div class="ms">
+                        <div class="ms-top">Discipline</div>
+                        <div class="ms-bottom">In Execution</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- WHO WE ARE -->
-<section class="about-editorial">
-  <div class="container narrow">
-    <div class="gold-divider"></div>
+<section class="about-body">
+    <div class="container">
+        <div class="layout">
+            <!-- Sticky nav -->
+            <aside class="side-nav reveal delay-1">
+                <div class="nav-title">On this page</div>
+                <a href="#philosophy" class="nav-item" [class.active]="activeSection==='philosophy'">Our Philosophy</a>
+                <a href="#approach" class="nav-item" [class.active]="activeSection==='approach'">Our Approach</a>
+                <a href="#positioning" class="nav-item" [class.active]="activeSection==='positioning'">Positioning</a>
+            </aside>
 
-    <h2 class="section-title">Who We Are</h2>
+            <!-- Content -->
+            <main class="content">
 
-    <div class="editorial-text">
-      <p>
-        Finesse Living was established on the belief that advisory must precede transaction.
-        In a market often driven by volume and velocity, we prioritize clarity, alignment,
-        and structured execution.
-      </p>
+                <!-- PHILOSOPHY -->
+                <section id="philosophy" class="block reveal">
+                    <div class="block-head">
+                        <div class="block-mark"></div>
+                        <h2>Our Philosophy</h2>
+                    </div>
 
-      <p class="highlight-line">
-        We do not pursue activity for its own sake.
-        <strong>We pursue positioning.</strong>
-      </p>
+                    <div class="glass">
+                        <p>
+                            Finesse Living was founded on the principle that advisory must precede every transaction.
+                            In a market often defined by volume, we operate with intention. Each engagement is
+                            approached
+                            with discipline, informed by intelligence, and guided by long term strategic alignment.
+                        </p>
 
-      <p>
-        Our model integrates experienced market professionals with driven next-generation advisors —
-        supported by advanced CRM systems, live property intelligence tools,
-        and defined operational processes.
-      </p>
+                        <div class="highlight">
+                            <span class="hl-line"></span>
+                            <div class="hl-text">
+                                We do not pursue activity for its own sake. <b>We pursue positioning.</b>
+                            </div>
+                        </div>
 
-      <p>
-        The result is disciplined movement in a dynamic market.
-      </p>
+                        <p>
+                            Our platform brings together experienced market professionals and a new generation of
+                            focused advisors,
+                            supported by advanced tech infrastructure, live property intelligence, and defined
+                            operational frameworks.
+                        </p>
+
+                        <p class="muted">
+                            The result is measured progression guided by clarity, discipline, and intent.
+                        </p>
+                    </div>
+
+                    <div class="pillars">
+                        <div class="pillar">
+                            <div class="pillar-icon">01</div>
+                            <div class="pillar-title">Clarity</div>
+                            <div class="pillar-text">Perspective before commitment.</div>
+                        </div>
+                        <div class="pillar">
+                            <div class="pillar-icon">02</div>
+                            <div class="pillar-title">Structure</div>
+                            <div class="pillar-text">Frameworks over guesswork.</div>
+                        </div>
+                        <div class="pillar">
+                            <div class="pillar-icon">03</div>
+                            <div class="pillar-title">Intent</div>
+                            <div class="pillar-text">Measured progression by design.</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- APPROACH -->
+                <section id="approach" class="block reveal">
+                    <div class="block-head center">
+                        <h2>Our Approach</h2>
+                        <p class="sub">
+                            A disciplined framework — designed to protect decision quality in a fast market.
+                        </p>
+                    </div>
+
+                    <div class="approach-grid">
+                        <div class="a-card reveal-stagger">
+                            <div class="a-num">01</div>
+                            <h3>Advisory Before Selection</h3>
+                            <p>
+                                Every engagement begins with understanding. Whether the objective is lifestyle
+                                alignment,
+                                capital preservation, yield optimisation, or long term portfolio growth,
+                                clarity of intent defines every decision that follows.
+                            </p>
+                        </div>
+
+                        <div class="a-card reveal-stagger">
+                            <div class="a-num">02</div>
+                            <h3>Intelligence Led Execution</h3>
+                            <p>
+                                Pricing, negotiation, and timing are informed by real time analytics,
+                                transaction evidence, and market absorption patterns.
+                                Insight replaces assumption. Structure replaces uncertainty.
+                            </p>
+                        </div>
+
+                        <div class="a-card reveal-stagger">
+                            <div class="a-num">03</div>
+                            <h3>Integrated Coordination</h3>
+                            <p>
+                                From initial selection through documentation, trustee procedures, developer liaison,
+                                mortgage alignment, and transfer execution,
+                                every stage is managed with precision and continuity.
+                            </p>
+                        </div>
+
+                        <div class="a-card reveal-stagger">
+                            <div class="a-num">04</div>
+                            <h3>Disciplined Expansion</h3>
+                            <p>
+                                Growth is intentional. Our structure ensures consistency, oversight,
+                                and the preservation of advisory quality across every client engagement.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- POSITIONING -->
+                <section id="positioning" class="cta-split reveal">
+                    <div class="cta-wrap">
+                        <div class="cta-left">
+                            <div class="cta-badge">POSITIONING</div>
+
+                            <h2 class="cta-title">
+                                Finesse Living exists for home buyers and investors who value
+                                <span>clarity over noise</span>,
+                                <span>structure over urgency</span>,
+                                and <span>disciplined execution over speculation</span>.
+                            </h2>
+
+                            <p class="cta-sub">
+                                Advisory-led guidance designed for confident, well-timed decisions.
+                            </p>
+                        </div>
+
+                        <div class="cta-right">
+                            <div class="cta-points">
+                                <div class="point">
+                                    <div class="point-dot"></div>
+                                    <div>
+                                        <div class="point-title">Clarity First</div>
+                                        <div class="point-text">Aligned decisions, not rushed actions.</div>
+                                    </div>
+                                </div>
+
+                                <div class="point">
+                                    <div class="point-dot"></div>
+                                    <div>
+                                        <div class="point-title">Structured Execution</div>
+                                        <div class="point-text">Coordination across every stage.</div>
+                                    </div>
+                                </div>
+
+                                <div class="point">
+                                    <div class="point-dot"></div>
+                                    <div>
+                                        <div class="point-title">Measured Outcomes</div>
+                                        <div class="point-text">Discipline supported by intelligence.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cta-actions">
+                                <a class="btn-solid" routerLink="/contact">Request a Call Back</a>
+                                <a class="btn-outline" href="mailto:info@finesseliv.com">Email Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
     </div>
-  </div>
-</section>
-
-<!-- PHILOSOPHY -->
-<section class="about-split">
-  <div class="split-left">
-    <div class="accent-bar"></div>
-    <h2>Our Philosophy</h2>
-  </div>
-  <div class="split-right">
-    <p>
-      In Dubai’s high-velocity environment, clarity becomes a strategic advantage.
-      Intelligent pacing produces stronger long-term outcomes.
-    </p>
-    <p>
-      Structure reduces risk. Intelligence strengthens negotiation.
-      Discipline protects capital.
-    </p>
-  </div>
-</section>
-
-<!-- APPROACH -->
-<section class="approach-premium">
-  <div class="container">
-
-    <h2 class="section-title centered">Our Approach</h2>
-
-    <div class="approach-columns">
-
-      <div class="approach-block">
-        <span class="block-number">01</span>
-        <h3>Advisory Before Action</h3>
-        <p>
-          Every engagement begins with understanding the client’s objective —
-          lifestyle alignment, capital preservation, yield performance,
-          or long-term portfolio growth.
-        </p>
-      </div>
-
-      <div class="approach-block">
-        <span class="block-number">02</span>
-        <h3>Intelligence-Led Execution</h3>
-        <p>
-          Pricing strategy, negotiation posture, and timing decisions are informed
-          by live analytics and transaction data.
-        </p>
-      </div>
-
-      <div class="approach-block">
-        <span class="block-number">03</span>
-        <h3>Structured Coordination</h3>
-        <p>
-          From documentation to trustee processes, developer communication,
-          mortgage alignment, and transfer management —
-          we coordinate every moving part with precision.
-        </p>
-      </div>
-
-      <div class="approach-block">
-        <span class="block-number">04</span>
-        <h3>Controlled Growth</h3>
-        <p>
-          We scale with discipline, ensuring every client interaction maintains
-          advisory oversight and strategic focus.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CLOSING -->
-<section class="closing-premium">
-  <div class="container narrow">
-    <h2>
-      Finesse Living exists for buyers and investors who value
-      <span>structure over noise</span>,
-      <span>clarity over pressure</span>,
-      and <span>results over rhetoric</span>.
-    </h2>
-  </div>
 </section>
 
 <app-footer />

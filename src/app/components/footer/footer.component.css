@@ -1,0 +1,10 @@
+.dark-footer .widget-title {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.dark-footer .footer-add p {
+  margin-bottom: 6px;
+  opacity: 0.9;
+}

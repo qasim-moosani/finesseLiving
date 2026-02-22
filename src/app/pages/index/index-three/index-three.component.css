@@ -1,18 +1,211 @@
-.hero-banner {
-  position: relative;
-  overflow: hidden;
+:host {
+  display: block;
 }
 
-.bg-video {
+/* HERO wrapper */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  overflow: hidden;
+  background: #0d1b2a;
+}
+
+/* video cover - fixes your screenshot issue */
+.hero__video {
   position: absolute;
-  top: 0; left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
+  object-position: center;
+  transform: scale(1.02);
 }
 
-.hero-content {
+/* overlay for readability */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 500px at 15% 20%, rgba(101, 71, 8, .35), transparent 60%),
+    linear-gradient(90deg, rgba(13, 27, 42, .78) 0%, rgba(13, 27, 42, .55) 55%, rgba(13, 27, 42, .30) 100%);
+}
+
+/* content grid */
+.hero__grid {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 38px;
+  align-items: center;
+  padding: 96px 0 72px;
+}
+
+.hero__kicker {
+  font-size: 12px;
+  letter-spacing: .22em;
+  font-weight: 800;
+  color: rgba(255, 255, 255, .75);
+  margin-bottom: 14px;
+}
+
+.hero__title {
+  font-family: "Playfair Display", serif;
+  font-size: 56px;
+  line-height: 1.06;
+  margin: 0 0 14px;
+  color: #fff;
+}
+
+.hero__title span {
+  color: #b08a3b;
+}
+
+.hero__sub {
+  color: rgba(255, 255, 255, .78);
+  max-width: 60ch;
+  line-height: 1.7;
+  margin: 0 0 22px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.btnSolid,
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.btnSolid {
+  background: #fff;
+  color: #654708;
+  border: 1px solid rgba(255, 255, 255, .55);
+}
+
+.btnOutline {
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .26);
+  backdrop-filter: blur(10px);
+}
+
+.btnSolid:hover,
+.btnOutline:hover {
+  transform: translateY(-2px);
+}
+
+.hero__trust {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero__trust span {
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .18);
+  color: rgba(255, 255, 255, .8);
+  backdrop-filter: blur(10px);
+}
+
+/* Right card */
+.heroCard {
+  background: rgba(255, 255, 255, .10);
+  border: 1px solid rgba(255, 255, 255, .20);
+  border-radius: 22px;
+  padding: 20px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .25);
+}
+
+.heroCard__badge {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: .18em;
+  font-weight: 900;
+  color: #fff;
+  background: rgba(176, 138, 59, .18);
+  border: 1px solid rgba(176, 138, 59, .30);
+}
+
+.heroCard__title {
+  margin-top: 12px;
+  font-weight: 900;
+  color: #fff;
+  font-size: 18px;
+}
+
+.heroCard__desc {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, .75);
+  font-size: 13px;
+}
+
+.heroForm {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.heroInput {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  outline: none;
+}
+
+.heroInput::placeholder {
+  color: rgba(255, 255, 255, .6);
+}
+
+.heroCard__meta {
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, .72);
+}
+
+.heroCard__meta a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    padding: 70px 0 50px;
+  }
+
+  .hero__title {
+    font-size: 40px;
+  }
+}
+
+.heroForm select option {
+  background: #f8f4ec;
+  color: #3a2a12;
 }

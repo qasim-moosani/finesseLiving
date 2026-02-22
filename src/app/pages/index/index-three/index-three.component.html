@@ -1,20 +1,111 @@
-<app-nav-light/>
+<app-nav-light />
 
-<div class="image-cover hero-banner" data-overlay="6">
-  <video #bgVideo class="bg-video" autoplay muted loop playsinline>
-    <source src="assets/videos/FinesseOffice.mp4" type="video/mp4" />
-  </video>
+<section class="hero">
+  
+    <video #bgVideo class="hero__video" autoplay muted loop playsinline>
+        <source src="assets/videos/FinesseOffice.mp4" type="video/mp4" />
+    </video>
 
-  <div class="container hero-content">
-    <h1 class="big-header-capt mb-0">Find Your Property</h1>
-    <p class="text-center mb-5">From as low as $10 per day with limited time offer</p>
+    <div class="hero__overlay"></div>
 
-    <div class="full-search-2 eclip-search italian-search hero-search-radius shadow mt-5">
-      <div class="hero-search-content">
-        <app-form-two></app-form-two>
-      </div>
+    <div class="container hero__grid">
+        <!-- LEFT -->
+        <div class="hero__left">
+            <div class="hero__kicker">FINESSE LIVING · DUBAI</div>
+
+            <h1 class="hero__title">
+                Defined by <span>Finesse</span>.<br />
+                Driven by <span>Precision</span>.
+            </h1>
+
+            <p class="hero__sub">
+                Finesse Living is a Dubai-based real estate house combining refined advisory with disciplined execution
+                —
+                guiding buyers and investors through a market that rewards clarity, timing, and intelligent positioning.
+            </p>
+
+            <div class="hero__actions">
+                <a class="btnSolid" [routerLink]="['/contact-us']" [queryParams]="{ intent: 'inquiry' }">Explore
+                    Services</a>
+                <a class="btnOutline" [routerLink]="['/contact-us']" [queryParams]="{ intent: 'consultation' }">Book a
+                    Consultation</a>
+            </div>
+
+            <div class="hero__trust">
+                <span>Advisory-led</span>
+                <span>Dubai Market Intelligence</span>
+                <span>Negotiation & Execution</span>
+            </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="heroCard">
+            <div class="heroCard__top">
+                <div class="heroCard__badge">CONSULTATION</div>
+                <div class="heroCard__title">Speak to an advisor</div>
+                <div class="heroCard__desc">Submit your details — we respond within 24 hours.</div>
+            </div>
+
+            <!-- Keep it simple for launch -->
+            <form class="heroForm">
+                <input class="heroInput" placeholder="Full Name" />
+                <input class="heroInput" placeholder="Phone / WhatsApp" />
+                <input class="heroInput" placeholder="Email" />
+                <select class="heroInput">
+                    <option>Buy</option>
+                    <option>Rent</option>
+                    <option>Off-Plan</option>
+                    <option>General Inquiry</option>
+                </select>
+                <button type="button" class="btnSolid w-100">Request a Call Back</button>
+
+                <div class="heroCard__meta">
+                    Prefer email? <a [routerLink]="['/contact-us']">Contact us</a>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+</section>
+<div *ngIf="false" class="image-cover hero-banner" data-overlay="7">
+    <video #bgVideo class="bg-video" autoplay muted loop playsinline>
+        <source src="assets/videos/FinesseOffice.mp4" type="video/mp4" />
+    </video>
+
+    <div class="container hero-grid">
+
+        <!-- LEFT SIDE -->
+        <div class="hero-left">
+            <h1>Defined by Finesse.<br>Driven by Precision.</h1>
+
+            <p class="hero-sub">
+                Finesse Living is a Dubai-based real estate house combining refined advisory with disciplined execution
+                —
+                guiding buyers and investors through a market that rewards clarity, timing, and intelligent positioning.
+            </p>
+
+            <div class="hero-actions">
+                <a class="btn-solid">Explore Properties</a>
+                <a class="btn-outline">Book a Consultation</a>
+            </div>
+
+            <div class="hero-trust">
+                <span>Dubai Market Focus</span>
+                <span>Intelligence-led Pricing</span>
+                <span>Structured Execution</span>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="hero-search-card">
+            <div class="hero-search-title">Begin Your Search</div>
+            <app-form-two></app-form-two>
+        </div>
+
+    </div>
+    <!-- <div class="hero-search-card">
+        <div class="hero-search-title">Find your match</div>
+        <app-form-two></app-form-two>
+    </div> -->
 </div>
 
 
@@ -24,50 +115,54 @@
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-10 text-center">
                 <div class="sec-heading center">
-                    <h2>Find By Locations</h2>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+                    <h2>Curated Dubai Communities</h2>
+                    <p>Explore Dubai’s most strategically positioned districts — selected for capital growth, rental strength, and long-term desirability.</p>
                 </div>
             </div>
         </div>
-        <app-best-loctions/>
-        <div class="row">
+        <app-best-loctions />
+        <div class="row" *ngIf="false">
             <div class="col-lg-12 col-md-12 col-sm-12 text-center mt-5">
-                <a [routerLink]="'/listings-list-with-sidebar'" class="btn btn-primary px-md-5 rounded">Browse More Locations</a>
+                <a [routerLink]="'/listings-list-with-sidebar'" class="btn btn-primary px-md-5 rounded">Browse More
+                    Locations</a>
             </div>
         </div>
     </div>
 </section>
 
-<section class="bg-light">
+<section class="bg-light" *ngIf="false">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-10 text-center">
                 <div class="sec-heading center">
                     <h2>Explore Good places</h2>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                        deleniti atque corrupti quos dolores</p>
                 </div>
             </div>
         </div>
-        <app-grid-one/>
-        <div class="row align-items-center justify-content-center">
+        <app-grid-one />
+        <div class="row align-items-center justify-content-center" >
             <div class="col-lg-12 col-md-12 col-sm-12 text-center mt-5">
-                <a [routerLink]="['/listings-list-with-sidebar']" class="btn btn-primary px-md-5 rounded">Browse More Properties</a>
+                <a [routerLink]="['/listings-list-with-sidebar']" class="btn btn-primary px-md-5 rounded">Browse More
+                    Properties</a>
             </div>
         </div>
-    </div>	
+    </div>
 </section>
 
-<section>
+<section *ngIf="false">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-7 col-md-10 text-center">
                 <div class="sec-heading center">
                     <h2>How It Works?</h2>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                        deleniti atque corrupti quos dolores</p>
                 </div>
             </div>
         </div>
-        <app-how-its-work/>
+        <app-how-its-work />
     </div>
 </section>
 
@@ -89,21 +184,22 @@
     <div class="ht-80"></div>
 </section>
 
-<section>
+<section *ngIf="false">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-10 text-center">
                 <div class="sec-heading center">
                     <h2>Latest Updates By Finnes Living</h2>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                        deleniti atque corrupti quos dolores</p>
                 </div>
             </div>
         </div>
-        
-        <app-blog/>
-    </div>		
+
+        <app-blog />
+    </div>
 </section>
 
 <!-- <app-footer-top [bg]="'theme-bg'"/> -->
 
-<app-footer/>
+<app-footer />
