@@ -225,7 +225,7 @@ export const bestLoction = [
         properties:'95 Properties'
     },
     {
-        image:'/assets/img/locations/L-4.jpg',
+        image:'/assets/img/locations/L-5.jpg',
         location:'Dubai Hills Estate',
         properties:'95 Properties'
     },
