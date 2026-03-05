@@ -62,10 +62,12 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
       .filter(Boolean) as HTMLElement[];
 
     this.sectionIo = new IntersectionObserver((entries) => {
-      const visible = entries.filter(e => e.isIntersecting).sort((a,b) => (b.intersectionRatio - a.intersectionRatio))[0];
-      if (!visible) return;
-      this.activeSection = visible.target.id as any;
-    }, { threshold: [0.25, 0.4, 0.6] });
+      const best = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => (b.intersectionRatio - a.intersectionRatio))[0];
+      if (!best) return;
+      this.activeSection = best.target.id as any;
+    }, { threshold: 0.55 });
 
     sections.forEach(s => this.sectionIo!.observe(s));
   }

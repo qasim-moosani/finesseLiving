@@ -25,13 +25,13 @@
             </p>
 
             <div class="hero__actions">
-                <a class="btnSolid" [routerLink]="['/contact-us']" [queryParams]="{ intent: 'inquiry' }">Explore
+                <a *ngIf="false" class="btnSolid" [routerLink]="['/contact-us']" [queryParams]="{ intent: 'inquiry' }">Explore
                     Services</a>
                 <a class="btnOutline" [routerLink]="['/contact-us']" [queryParams]="{ intent: 'consultation' }">Book a
                     Consultation</a>
             </div>
 
-            <div class="hero__trust">
+            <div class="hero__trust" *ngIf="false">
                 <span>Advisory-led</span>
                 <span>Dubai Market Intelligence</span>
                 <span>Negotiation & Execution</span>
@@ -176,7 +176,8 @@
                 <div class="caption-wrap-content text-center">
                     <h2 class="fs-1">Search Perfect Place in your City</h2>
                     <p class="mb-5">We post regulary most powerful articles for help and support.</p>
-                    <a [routerLink]="[]" class="btn btn-whites fw-medium rounded">Explore More Property</a>
+                    <!-- <a [routerLink]="[]" class="btn btn-whites fw-medium rounded">Explore More Property</a> -->
+                    <a [routerLink]="[]" class="btnSolid fw-medium rounded">Explore More Property</a>
                 </div>
             </div>
         </div>
