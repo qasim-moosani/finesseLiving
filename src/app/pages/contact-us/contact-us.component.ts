@@ -5,6 +5,7 @@ import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@ang
 import { FormBuilder, Validators, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { NavLightComponent } from '../../components/navbar/nav-light/nav-light.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -23,7 +24,8 @@ export class ContactUsComponent implements AfterViewInit, OnDestroy {
   private map: any;              // Leaflet map instance
   private mapReady = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private contactService: ContactService, private fb: FormBuilder) {
+
     this.contactForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],
       phone: ['', [Validators.required, Validators.minLength(7)]],
@@ -62,18 +64,27 @@ export class ContactUsComponent implements AfterViewInit, OnDestroy {
     this.safeInvalidate();
   };
 
+ 
   submit(): void {
-    if (this.contactForm.invalid) return;
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+      return;
+    }
 
     this.submitting = true;
 
-    console.log('Form payload:', this.contactForm.value);
-
-    setTimeout(() => {
-      this.submitting = false;
-      this.contactForm.reset();
-      alert('Thank you. Our advisory team will reach out within 24 hours.');
-    }, 900);
+    this.contactService.sendInquiry(this.contactForm.value).subscribe({
+      next: (response) => {
+        this.submitting = false;
+        alert(response.message || 'Thank you. Our advisory team will reach out within 24 hours');
+        this.contactForm.reset();
+      },
+      error: (error) => {
+        this.submitting = false;
+        console.error('Submit error:', error);
+        alert('Failed to send inquiry');
+      }
+    });
   }
 
   private initMap(): void {

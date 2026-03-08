@@ -1,7 +1,7 @@
 <app-nav-light />
 
 <section class="hero">
-  
+
     <video #bgVideo class="hero__video" autoplay muted loop playsinline>
         <source src="assets/videos/FinesseOffice.mp4" type="video/mp4" />
     </video>
@@ -25,7 +25,8 @@
             </p>
 
             <div class="hero__actions">
-                <a *ngIf="false" class="btnSolid" [routerLink]="['/contact-us']" [queryParams]="{ intent: 'inquiry' }">Explore
+                <a *ngIf="false" class="btnSolid" [routerLink]="['/contact-us']"
+                    [queryParams]="{ intent: 'inquiry' }">Explore
                     Services</a>
                 <a class="btnOutline" [routerLink]="['/contact-us']" [queryParams]="{ intent: 'consultation' }">Book a
                     Consultation</a>
@@ -47,17 +48,22 @@
             </div>
 
             <!-- Keep it simple for launch -->
-            <form class="heroForm">
-                <input class="heroInput" placeholder="Full Name" />
-                <input class="heroInput" placeholder="Phone / WhatsApp" />
-                <input class="heroInput" placeholder="Email" />
-                <select class="heroInput">
+            <form class="heroForm" [formGroup]="contactForm" (ngSubmit)="submit()" novalidate>
+                <input class="heroInput" placeholder="Full Name" formControlName="fullName" />
+                <input class="heroInput" placeholder="Phone / WhatsApp" formControlName="phone" />
+                <input class="heroInput" placeholder="Email" formControlName="email" />
+                <select class="heroInput" formControlName="inquiryType">
+                    <option disabled>Select</option>
                     <option>Buy</option>
                     <option>Rent</option>
                     <option>Off-Plan</option>
                     <option>General Inquiry</option>
                 </select>
-                <button type="button" class="btnSolid w-100">Request a Call Back</button>
+                <button class="btnSolid w-100" type="submit" >
+                    <span *ngIf="!submitting">Request a Call Back</span>
+                    <span *ngIf="submitting">Sending…</span>
+                </button>
+                <!-- <button type="button" class="btnSolid w-100">Request a Call Back</button> -->
 
                 <div class="heroCard__meta">
                     Prefer email? <a [routerLink]="['/contact-us']">Contact us</a>
@@ -116,7 +122,8 @@
             <div class="col-xl-6 col-lg-7 col-md-10 text-center">
                 <div class="sec-heading center">
                     <h2>Curated Dubai Communities</h2>
-                    <p>Explore Dubai’s most strategically positioned districts — selected for capital growth, rental strength, and long-term desirability.</p>
+                    <p>Explore Dubai’s most strategically positioned districts — selected for capital growth, rental
+                        strength, and long-term desirability.</p>
                 </div>
             </div>
         </div>
@@ -142,7 +149,7 @@
             </div>
         </div>
         <app-grid-one />
-        <div class="row align-items-center justify-content-center" >
+        <div class="row align-items-center justify-content-center">
             <div class="col-lg-12 col-md-12 col-sm-12 text-center mt-5">
                 <a [routerLink]="['/listings-list-with-sidebar']" class="btn btn-primary px-md-5 rounded">Browse More
                     Properties</a>
