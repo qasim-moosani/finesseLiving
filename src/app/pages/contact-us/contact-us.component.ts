@@ -6,6 +6,7 @@ import { FormBuilder, Validators, ReactiveFormsModule, FormGroup } from '@angula
 import { NavLightComponent } from '../../components/navbar/nav-light/nav-light.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ContactService } from '../../services/contact.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact-us',
@@ -24,7 +25,9 @@ export class ContactUsComponent implements AfterViewInit, OnDestroy {
   private map: any;              // Leaflet map instance
   private mapReady = false;
 
-  constructor(private contactService: ContactService, private fb: FormBuilder) {
+  constructor(private contactService: ContactService, private fb: FormBuilder,
+    private toast: ToastrService
+  ) {
 
     this.contactForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],
@@ -76,13 +79,13 @@ export class ContactUsComponent implements AfterViewInit, OnDestroy {
     this.contactService.sendInquiry(this.contactForm.value).subscribe({
       next: (response) => {
         this.submitting = false;
-        alert(response.message || 'Thank you. Our advisory team will reach out within 24 hours');
+         this.toast.success(response.message || 'Thank you. Our advisory team will reach out within 24 hours', 'Success');       
         this.contactForm.reset();
       },
       error: (error) => {
         this.submitting = false;
         console.error('Submit error:', error);
-        alert('Failed to send inquiry');
+        this.toast.error('Failed to send inquiry');
       }
     });
   }

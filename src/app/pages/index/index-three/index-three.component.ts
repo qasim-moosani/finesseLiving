@@ -12,6 +12,8 @@ import { FooterComponent } from "../../../components/footer/footer.component";
 import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { ContactService } from '../../../services/contact.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-index-three',
@@ -26,7 +28,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
     BlogComponent,
     FooterTopComponent,
     FooterComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   templateUrl: './index-three.component.html',
   styleUrl: './index-three.component.css'
@@ -35,7 +38,7 @@ export class IndexThreeComponent implements AfterViewInit {
 
   submitting = false;
   contactForm!: FormGroup;
-  constructor(private contactService: ContactService, private fb: FormBuilder) {
+  constructor(private contactService: ContactService, private fb: FormBuilder, private toast: ToastrService) {
 
     this.contactForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],
@@ -53,24 +56,26 @@ export class IndexThreeComponent implements AfterViewInit {
     this.video.nativeElement.volume = 1;
   }
 
+ 
+
   submit(): void {
+    this.submitting = true;
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       return;
     }
 
-    this.submitting = true;
 
     this.contactService.sendInquiry(this.contactForm.value).subscribe({
       next: (response) => {
         this.submitting = false;
-        alert(response.message || 'Thank you. Our advisory team will reach out within 24 hours');
-        this.contactForm.reset();
+        this.toast.success(response.message || 'Thank you. Our advisory team will reach out within 24 hours', 'Success');       
+       this.contactForm.reset();
       },
       error: (error) => {
         this.submitting = false;
         console.error('Submit error:', error);
-        alert('Failed to send inquiry');
+        this.toast.error('Failed to send inquiry');
       }
     });
   }
